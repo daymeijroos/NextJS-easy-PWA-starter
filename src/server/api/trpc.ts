@@ -131,7 +131,11 @@ export const protectedProcedure = t.procedure.use(enforceUserIsAuthed);
  */
 
 const enforceRole = (role: string) => {
-  return enforceUserIsAuthed(({ ctx, next }) => {
+  /** 
+   * Ustable is allowed to be used.
+   * @See https://trpc.io/docs/faq#unstable"
+   */
+  return enforceUserIsAuthed.unstable_pipe(({ ctx, next }) => {
     if (ctx.session?.user?.role !== role) {
       throw new TRPCError({ code: "UNAUTHORIZED" });
     }
@@ -148,5 +152,5 @@ const enforceRole = (role: string) => {
  * @param role The role to enforce
  */
 export const restrictedProcedure = (role: 'ADMIN' | 'USER') => {
-  return t.procedure.use(enforceUserIsAuthed, enforceRole(role));
+  return t.procedure.use(enforceRole(role));
 }

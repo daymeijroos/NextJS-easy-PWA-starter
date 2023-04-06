@@ -1,7 +1,7 @@
-import {SeparatorProps, useSeparator} from 'react-aria';
+import {type SeparatorProps, useSeparator} from 'react-aria';
 
 function Separator(props: SeparatorProps) {
-  let { separatorProps } = useSeparator(props);
+  const { separatorProps } = useSeparator(props);
 
   return (
     <div
