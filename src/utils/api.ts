@@ -14,6 +14,12 @@ import superjson from "superjson";
 import { type AppRouter } from "../../server/api/root";
 import { env } from "../env/client.mjs";
 
+const getBaseUrl = () => {
+  if (typeof window !== "undefined") return ""; // browser should use relative url
+  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`; // SSR should use vercel url
+  return `http://localhost:${process.env.PORT ?? 3000}`; // dev SSR should use localhost
+};
+
 /**
  * A set of typesafe react-query hooks for your tRPC API
  */
@@ -37,7 +43,7 @@ export const api = createTRPCNext<AppRouter>({
             (opts.direction === "down" && opts.result instanceof Error),
         }),
         httpBatchLink({
-          url: env.NEXT_PUBLIC_APP_URL + '/api/trpc',
+          url: `${getBaseUrl()}/api/trpc`,
           headers() {
             if (!ctx?.req?.headers) {
               return {};
@@ -56,7 +62,7 @@ export const api = createTRPCNext<AppRouter>({
    * Whether tRPC should await queries when server rendering pages
    * @see https://trpc.io/docs/nextjs#ssr-boolean-default-false
    */
-  ssr: true,
+  ssr: false,
 });
 
 /**

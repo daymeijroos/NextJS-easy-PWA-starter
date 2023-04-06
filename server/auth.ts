@@ -76,15 +76,3 @@ export const getServerAuthSession = (ctx: {
 }) => {
   return getServerSession(ctx.req, ctx.res, authOptions);
 };
-function CredentialsProvider(arg0: {
-  // The name to display on the sign in form (e.g. "Sign in with...")
-  name: string;
-  // `credentials` is used to generate a form on the sign in page.
-  // You can specify which fields should be submitted, by adding keys to the `credentials` object.
-  // e.g. domain, username, password, 2FA token, etc.
-  // You can pass any HTML attribute to the <input> tag through the object.
-  credentials: { username: { label: string; type: string; placeholder: string; }; password: { label: string; type: string; }; }; authorize(credentials: any, req: any): Promise<{ id: string; name: string; email: string; } | null>;
-}): import("next-auth/providers/index.js").Provider {
-  throw new Error("Function not implemented.");
-}
-
