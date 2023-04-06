@@ -20,7 +20,7 @@ export default function TrpcExample() {
     <div className="flex flex-col items-center justify-center gap-4"
       ref={parent}>
       {example.data?.map((post) => (
-        <div className="bg-white shadow-md rounded-lg overflow-hidden w-full">
+        <div className="bg-white shadow-md rounded-lg overflow-hidden w-full" key={post.id}>
           <div className="px-4 py-2">
             <h1 className="text-gray-900 font-bold text-2xl">{post.title} <i className="text-gray-300">- {post.userName ?? "Anonymous"}</i></h1>
             <p className="mt-1 text-gray-600 text-sm">{post.content}</p>

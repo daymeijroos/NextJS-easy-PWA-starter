@@ -5,9 +5,9 @@ import {useTextField} from 'react-aria';
 //make it pretty using tailwind
 
 export function TextField(props: AriaTextFieldProps) {
-  let { label } = props;
-  let ref = React.useRef(null) ;
-  let { labelProps, inputProps, descriptionProps, errorMessageProps } = useTextField(props, ref);
+  const { label } = props;
+  const ref = React.useRef(null) ;
+  const { labelProps, inputProps, descriptionProps, errorMessageProps } = useTextField(props, ref);
 
   return (
     <div className='flex flex-col gap-2'>

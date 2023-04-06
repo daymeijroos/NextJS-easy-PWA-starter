@@ -12,9 +12,11 @@ const AuthExample: React.FC = () => {
   const context = api.useContext()
 
   const { mutate } = api.example.createPost.useMutation({
-    onSuccess: () => {
+    onSuccess: (): void => {
       // invalidate the query to update the UI
-      context.example.posts.invalidate();
+      context.example.posts.invalidate().catch((error) => {
+        console.error(error);
+      });
     },
   });
 
