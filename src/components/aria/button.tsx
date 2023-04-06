@@ -7,7 +7,7 @@ export function Button(props: AriaButtonProps) {
   let { children } = props;
 
   return (
-    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-4"
+    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full my-4"
       {...buttonProps} 
       ref={ref}>
       {children}
