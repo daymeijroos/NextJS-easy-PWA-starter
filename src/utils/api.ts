@@ -12,7 +12,7 @@ import { NextPageContext } from "next";
 import superjson from "superjson";
 
 import { type AppRouter } from "../../server/api/root";
-import { env } from "../env/client.mjs";
+import { env } from "../../env/client.mjs";
 
 const getBaseUrl = () => {
   if (typeof window !== "undefined") return ""; // browser should use relative url

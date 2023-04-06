@@ -9,7 +9,7 @@ import GoogleProvider from "next-auth/providers/google";
 import DiscordProvider from "next-auth/providers/discord";
 
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import { env } from "../src/env/server.mjs";
+import { env } from "../env/server.mjs";
 import { prisma } from "./db";
 import { User } from "@prisma/client";
 
