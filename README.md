@@ -4,8 +4,6 @@ You're gonna need an .env file. You can copy the example file and fill in the bl
 
 Run `npm install` to install all the dependencies.
 
-You will also need to push and seed the database. You can do this by running `npm seed`.
-
 After that you can run the project in developer mode with `npm run dev`.
 
 
